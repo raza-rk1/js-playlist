@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document </title>
+</head>
+<body>
+    <H1>CHAI AUR CODE </H1>
+    <button id="stop">Stop</button>
+    
+</body>
+<script>
+ /*
+
+    // setTimeout is a method which also call APIs also 
+    setTimeout(function(){
+        console.log("Taha");
+    } , 2000)                // 2000 means , it will print after 2 sec single time only
+
+
+
+*/
+    // setInterval is a method which executes again and again after a certain interval of time
+const SayTaha = function(){
+    console.log("Taha");
+}
+// change H1 name below 
+  // document.querySelector('h1').innerHTML = "Best JS Series"
+  const changeText = function(){
+    document.querySelector('h1').innerHTML = "Best JS Series"
+  }
+
+
+
+  const changeMe = setTimeout( changeText, 2000)       // we only give reference here , dont execute it 
+  document.querySelector('#stop').
+addEventListener('click', function(){
+    clearTimeout(changeMe)
+    console.log("STOPPED");     // we use clearTImeout to STOP the event 
+})
+
+</script>
+</html>

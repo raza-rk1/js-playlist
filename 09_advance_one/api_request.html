@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body  style="background-color: #fff;">
+<!-- 0	UNSENT	Client has been created. open() not called yet.
+1	OPENED	open() has been called.
+2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+3	LOADING	Downloading; responseText holds partial data.
+4	DONE	The operation is complete. -->
+</body>
+<script>
+
+    /* 
+
+
+     // the req sent to XML which is also known as AJAX request 
+          const requestUrl = 'https://api.github.com/users/hiteshchoudhary'    
+
+          const userData = [];  // 0: name, 1: image, 2: followers
+
+           const xhr  = new XMLHttpRequest();
+           xhr.open('GET', requestUrl)
+           xhr.onreadystatechange = function(){
+             if(this.readyState === 4){
+                const data =  JSON.parse(this.responseText)
+                console.log(typeof  data);                   // Response coming from URL is in STRING format
+            //     // console.log(this.responseText); 
+                   console.log(data.followers);             // to get data from object we use . (dot)      and here we want to know the follwers of hitesh     
+             }
+            }
+                  xhr.send();
+
+                  */
+
+    //     const requestUrl = 'https://api.github.com/users/hiteshchoudhary'
+    //     const xhr = new XMLHttpRequest();
+    //     xhr.open('GET', requestUrl)
+    //     xhr.onreadystatechange = function(){
+    //     console.log(xhr.readyState);
+    //     console.log(requestUrl);
+    //     if (xhr.readyState === 4) {
+    //         const data = JSON.parse(this.responseText)
+    //         console.log(typeof data);
+    //         console.log(data.followers);
+    //     }
+    // }
+    // xhr.send();
+    const requestUrl = 'https://api.github.com/users/hiteshchoudhary';
+const xhr = new XMLHttpRequest();    // The methods allow a browser-based application to make a fine-grained server call  and store the results in XMLHttpRequest's responseText attribute.
+
+xhr.open('GET', requestUrl);
+xhr.onreadystatechange = function() {
+    console.log(xhr.readyState);
+    if (xhr.readyState === 4) {
+        console.log(xhr.responseText);
+    }
+}
+
+xhr.send();
+// XMLHttpRequest (XHR) objects are used to interact with servers. You can retrieve data from a URL without having to do a full page refresh. This enables a Web page to update just part of a page without disrupting what the user is doing.
+
+// An XHR (XMLHttpRequest) is an asynchronous client-side scripting interface that allows web developers to retrieve and send data up to the server over HTTP or HTTPS
+
+
+            </script>
+</html>
+
+
+//  EXPLANATION OF ABOVE CODE 
+Setting up the Request:
+const requestUrl = 'https://api.github.com/users/hiteshchoudhary';
+const xhr = new XMLHttpRequest();
+Here, you define the URL of the GitHub API for the user "hiteshchoudhary" and create a new XMLHttpRequest object (xhr).
+
+Opening the Request:
+xhr.open('GET', requestUrl);
+This line tells the XMLHttpRequest object to open a GET request to the specified URL.
+
+Handling State Changes:
+xhr.onreadystatechange = function() {
+    console.log(xhr.readyState);
+    if (xhr.readyState === 4) {
+        // Process the response when the request is complete
+    }
+};
+This sets up an event handler that listens for changes in the XMLHttpRequest's state. The console.log(xhr.readyState) will print the current state to the console.
+
+Processing the Response:
+const data = JSON.parse(this.responseText);
+console.log(typeof data);
+console.log(data.followers);
+When the state becomes 4 (indicating the request is complete), it parses the response text (assumed to be in JSON format) and logs the type of data and the number of followers of the user "hiteshchoudhary" to the console.
+
+Sending the Request:
+xhr.send();
+Finally, this line sends the GET request to the GitHub API.
+
+In summary, this code fetches information about the GitHub user "hiteshchoudhary" using JavaScript and logs the number of followers to the console when the request is complete.
